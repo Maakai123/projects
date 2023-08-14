@@ -1,0 +1,146 @@
+
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+
+/*
+MAIN COLOR:#087f5b
+GRAY COLOR:#343a40
+*/
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+  }
+
+  body{
+    font-family: "Inter", sans-serif;
+    color: #343a40 ;
+    line-height: 1;
+  }
+
+
+.carousel{
+  width: 950px;
+  margin: 100px auto;
+  background-color: #087f5b;
+  padding: 32px ;
+  border-radius: 8px;
+  display: flex; /*Use display flex to place everything side by side*/
+  /*align-items: center;*/
+  padding-left: 98px;/*This will help the image transformed move to the left*/
+  gap:86px;
+  position: relative;
+}
+
+
+ img{
+  height: 200px;
+  border-radius: 8px;
+  transform: scale(1.5);  /*Transform will scale any object, it has function*, make the image grow*/
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25)
+ }
+
+
+.testimonial-text{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  color:#e6fcf5;
+}
+
+.testimonial-author{
+  font-size: 14px;
+  margin-bottom:4px;
+  color:#e6fcf5; /*Use this color to overide white*/
+
+}
+
+.testimonial-job{
+  font-size: 12px;
+  color:#e6fcf5;
+}
+
+/*CONTROLS*/
+
+.btn{
+  background-color: #fff;
+  border: none; /*btn's have automatic borders, remove them*/
+  height:40px;
+  width:40px;
+  /*to make the btn move everywhere, we need to give btn position absolute and set to relative to the container carasoul*/
+ position: absolute;
+ border-radius: 50%;
+ /*to center the svg inside the btn*/
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+ cursor: pointer;
+
+ /*in HTML in other to work  with all the btns both left and right, add special class to btn, 
+ btn-left and btn-right*/
+
+ /*we are going to move the elements around with transform:translate(0,-50%) 0=>horizontally,
+ -50% vertically
+ -50%, is the height of the Element*/
+
+
+
+}
+
+.btn--left{
+
+ left:0;
+ /*top 50% will  take  half of the parent container*/
+ top:50%;
+ /*translate will take it back up and balance it at the center*/
+ transform:translate(-50%, -50%) 
+ /* use translate(-50%, -50%)
+ -50% horitally push it left sideways 50% will push it righ sideways, -50% upwardsvertically*/
+}
+
+.btn--right{
+  right: 0;
+  top: 50%;
+  transform:translate(50%, -50%) 
+}
+.btn-icon{
+  /*since they are small, we need to set this class height and width*/
+  height: 24px;
+  width: 24px;
+  stroke:#087f5b
+}
+
+/*&nbsp; create space in HTML*/
+
+.dots {
+/* dots container*/
+position:absolute;
+/*if set left to 50%, dots will be at the center*/
+left: 50%;
+transform: translate(-50%, 0);
+/*push it to bottom*/
+bottom: 0;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  border: 2px solid #087f5b;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
+
+
+/*6:52:42*/

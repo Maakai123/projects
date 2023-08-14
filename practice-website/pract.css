@@ -64,6 +64,8 @@ GRAY COLOR:#343a40
 .open .hidden{
 display:block;
 }
+
+
 .hidden{
   grid-column: 2;
   display: none;
