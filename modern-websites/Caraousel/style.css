@@ -31,13 +31,14 @@ GRAY COLOR:#343a40
   width: 950px;
   margin: 100px auto;
   background-color: #087f5b;
-  padding: 32px ;
+  padding:32px 48px 32px 86px; /*top right bottom and left*/
   border-radius: 8px;
   display: flex; /*Use display flex to place everything side by side*/
   /*align-items: center;*/
   padding-left: 98px;/*This will help the image transformed move to the left*/
   gap:86px;
   position: relative;
+
 }
 
 
@@ -127,9 +128,12 @@ GRAY COLOR:#343a40
 position:absolute;
 /*if set left to 50%, dots will be at the center*/
 left: 50%;
-transform: translate(-50%, 0);
+transform: translate(50%, 40px); /*50% will push right horizontally */
 /*push it to bottom*/
 bottom: 0;
+/*Use flex to put gap between the btns*/
+ display: flex;
+ gap:12px;
 }
 
 .dot {
@@ -142,5 +146,9 @@ bottom: 0;
 
 }
 
-
+.dot-fill{
+  /*to give the first on a background color,
+  create a special class dot-fill*/
+  background-color:#087f5b; ;
+}
 /*6:52:42*/

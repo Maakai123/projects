@@ -1,0 +1,2 @@
+Take away
+padding , how to scale an image, how to place an element anywhere transfrom(translate) and absolute positioning
