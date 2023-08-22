@@ -11,7 +11,7 @@ if(a > b ){
 a>b ? console.log(' a is greater than b'):console.log(' a is less than b')
 
 
-/*
+
 const evenNumber = prompt('enter number')
 
 if(evenNumber%2 === 0){
@@ -42,9 +42,9 @@ if(score >= 80 && score <=100 ){
 } else{
   console.log('Enter a number')
 }
-*/
 
-/*
+
+
 
 //NUMBER 2 
 
@@ -82,7 +82,7 @@ else if (input.toLowerCase() === 'june') {
   console.log('Invalid month ')
 }
 
-*/
+
 
 //Num3
 const weekdays = prompt('What is the day today').trim()
