@@ -17,6 +17,8 @@
     <p class="quizz-heading">Coders Den Quizz app </p>
       
     <p class="quizz-members">CODERS THEN GROUP 3 HACKATHON</p>
+
+    <div class="show-result"></div>
   </div>
 
 
@@ -26,23 +28,27 @@
     
     <div class="quizz-login-information">
     <div>Username:</div>
-     <input type="text" placeholder="enter your username">
+     <input type="text" class="username" placeholder="enter your username">
 
      <div>Password:</div>
-     <input type="password" placeholder="enter your username">
+     <input type="password" class="password" placeholder="enter your password">
 
      <div>Email:</div>
-     <input type="email" placeholder="enter your username">
+     <input type="email" class="email" placeholder="enter your username">
     </div>
  
     <div class="btn">
-        <button>Login</button>
-        <button>Sign Up</button>
+        <button class="login">Login</button>
+        <button class="sign-btn">Sign Up</button>
     </div>
     
    
   </div>
 </div>
+
+
+
+ <script src="./JAVASCRIPT/firebase.js" type="module"></script>
     
 </body>
 </html>
