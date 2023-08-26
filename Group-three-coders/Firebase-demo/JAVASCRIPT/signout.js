@@ -26,12 +26,10 @@ const signOutBtn = document.querySelector('.sign-out')
 signOutBtn.addEventListener('click', function(){
    
     signOut(auth).then(() => {
-        // Sign-out successful.
-        result.innerText = ` Godbye ${logObj.username}`
-        alert("Sigout succesfully")
+        window.location.href = './login.html';
       }).catch((error) => {
         // An error happened.
-        alert("An error happened.")
+        
       });
 
 })
