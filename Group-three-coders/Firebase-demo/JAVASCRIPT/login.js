@@ -1,9 +1,7 @@
-
-
 'use strict'
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+  import { getAuth, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,32 +26,45 @@ const signUp = document.querySelector('.sign-btn')
 const userName = document.querySelector('.username')
 const passWord = document.querySelector('.password')
 const result = document.querySelector('.show-result')
+const login = document.querySelector('.login-btn')
 
 
+login.addEventListener('click', function(){
+    
+ var logObj = {
+   username: userName.value,
+   password: passWord.value,
+   email: email.value,
+ }
 
-signUp.addEventListener('click', function(e){
-
-   e.preventDefault();
-   var obj = {
-    username: userName.value,
-    email: email.value,
-    password: passWord.value
-   }
-
-   createUserWithEmailAndPassword(auth, obj.email,obj.password
+ signInWithEmailAndPassword(auth, logObj.email, logObj.password
     ).then(function(success){
-        result.innerText = `welcome ${obj.username} are you set for quiz?`
-        alert("Signup Sucessfull")
+        result.innerText = ` welcome ${logObj.username}, Start quizz`
+        alert("Sigin succesfully")
     })
     .catch(function(err){
         alert("error" + err)
     })
+    
+    console.log(logObj)
 
-    console.log(obj)
+    /*
+ signInWithEmailAndPassword(auth, logObj.email, logObj.password)
+  .then((userCredential) => {
+    // Signed in 
+    result.innerText = `${obj.username} you are signed In?`
+        alert("Signup Sucessfull")
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
+*/
+
 })
 
 
 
-
-
-   
