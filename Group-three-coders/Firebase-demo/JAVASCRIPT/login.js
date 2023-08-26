@@ -44,6 +44,7 @@ login.addEventListener('click', function(){
     })
     .catch(function(err){
         alert("error" + err)
+        result.innerText = 'Please signup, username and email not found'
     })
     
     console.log(logObj)
