@@ -1,0 +1,109 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html{
+   font-family: "Rubik", sans-serif; 
+   color:#444
+}
+
+
+/* Utility class that will center every element*/ 
+
+.container{
+    margin: 0 auto;
+    /*Always specify the with on the container*/
+    width: 1200px; 
+
+}
+
+.header-container{
+/*How to center this vertically */
+width: 1200px;
+position: absolute;
+
+/*In relation to parent size*/
+left: 50%;
+top:50%;
+
+/* To this container in the middle */
+transform: translate(-50%, -50%);
+
+/*To make the texts to stay in the center
+text-align:center ;
+wont work perfectly */
+}
+
+.header-container-inner{
+    /* to make the text align at the center, we need to create a new contenter
+    for the text and half it by the total width of the parent container*/
+
+    width: 50%;
+    /*Thiis will make the text container half*/
+   
+}
+header{
+    
+    /*keep the height of the header at 100%, even if we shrink it
+    50vh will make half the viewport*/
+    height: 100vh;
+    position: relative;
+    /*The background image is showing well
+    add linear credient with transperency 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)*/
+    /* background-image: linear-gradient(black,black) url(./IMAGES/food.jpg);*/
+
+    background-image: linear-gradient(rgba(34,34,34,0.6),rgba(34,34,34,0.6)), url(./IMAGES/food.jpg);
+    /*The background image we need to cover the page*/
+    background-size: cover;
+    color: #fff;
+}
+nav{
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    /*Margin-top wont work because of piority, container margin 0 auto
+    will take all the piority*/
+    padding-top: 32px;
+}
+
+h1{
+    font-size: 52px;
+    margin-bottom: 32px;
+    line-height: 1.0;
+}
+
+p{
+    font-size:20px;
+    line-height: 1.5;
+    margin-bottom: 48px;
+}
+
+.btn:link,
+.btn:visited{
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #e67e22;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 32px;
+    /* when styling a link make sure its display is inline-block*/
+    display: inline-block;
+    border-radius: 9px;
+}
+
+h2{
+    font-size: 44px;
+    margin-bottom: 48px;
+}
+
+section{
+    padding: 96px 0;
+    background-color: #f7f7f7;
+}

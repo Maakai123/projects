@@ -593,9 +593,33 @@ Modal Windows allow user sign in
 
 Download the slides and study them 
 
+Navigation bar 
 
-5:23: 10
+Hero session, has Text one side and Image on the other side
+second type has a background image and text on top.
 
+Footer 
+add a sidemap in your footer , news letter signup
+
+Call to action section 
+we want the customer to take some action, usually in a marketing page
+or they ask the user to contact them 
+
+Feature roles: it describe some feature of the product or service 
+It contains an image, some text and a button 
+section components 
+
+
+
+patterns
+
+Row od Boxes/cards 
+Grid od boxes/cards
+z-pattern
+F-pattern 
+Single colunm patter, used in mobiles
+Sidebars can be used as table of content 
+Multi-column/magazine patterns
 
 
 

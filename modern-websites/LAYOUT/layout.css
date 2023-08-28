@@ -1,0 +1,96 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;  
+}
+
+body{
+font-family: sans-serif; 
+color: #343a40;
+font-size: 24px;
+display: grid;
+grid-template-columns: 80px 400px 1fr 250px; /*1 fr is not fixed, it can move and expand*/
+grid-template-rows: 80px 1fr;
+
+/* To make aside column go down to the end
+we need to make body to be heigh AS THE VIEW PORD*/
+height: 100vh;
+text-align: center;
+font-weight: bold;
+}
+
+nav,section,aside{
+    padding-top:24px;
+}
+nav{
+    background-color: #343a40;
+    color: #fff;
+    grid-row-start: 1;
+    /*go down to the end use -1*/ 
+    grid-row-end: -1;
+}
+
+menu{
+   background-color: #845ef7; 
+   color:#fff;
+   grid-column-start: 2;
+   grid-column-end: -1; /*To the end od the coulunm use -1 or 4*/
+   /*since this is the parent container of the buttons make it flex*/
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   padding: 0 40px;
+}
+
+section{
+    background-color:#e9ecef ;
+    /*Parent container of email div*/
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    /*This will add a scroll bar
+    verflow: scroll; /*/
+    overflow: scroll; 
+    /*add*/
+   
+}
+
+
+button{
+    display: inline-block;
+
+    font-size: 16px;
+    background-color: #5f3dc4;
+    font-weight: bold;
+    border:none;
+    cursor: pointer;
+    padding:8px 12px;
+    color: #fff;
+    /*They are centerd bc button are like text elements
+    they are inline elements they behave like text elements*/
+}
+
+/*Target the last button*/
+button:last-child{
+    background-color: #f783ac;
+    /*To push this to the end?*/
+    margin-left: auto;
+}
+
+aside{
+    background-color: #e9ecef;
+
+}
+
+.email{
+ background-color:#343a40;
+ color: #fff;
+ height: 96px;
+ 
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ /*so it not to shrink*/
+ flex-shrink: 0;
+}
