@@ -90,4 +90,3 @@ allDogs.forEach(function(dog, i){
 
 checkDogs([3,5,2,12,7],[4,1,15,8,3])
 
-
