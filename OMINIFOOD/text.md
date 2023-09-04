@@ -75,5 +75,105 @@ A blog should be updated regularly
 
 
 
+# DEFINE THE OMINIFOOD PROJECT 
+
+# Who the website is for ?
+
+For a client
+
+# What the website is for ?
+-Business goal: Selling monthly food subscription 
+-User goal: Eating well effortlessly, without spending a lot of time and money 
+
+# Define target audience ?
+
+Busy people who like technology, are interested in a healthy diet and have a well-paying job.
+.....................................................
+
+
+
+# PLANE THE PROJECT 
+
+plan and gather website content 
+
+--No sitemap since its a landing page 
+
+
+# Define website personality 
+
+ Based on the tech-centerd target audience, as well as the actual product beign sold, we will use the startup/upbeat personality.
+ we  might add some elements of the calm/peaceful personality, since the product is all about consumer well-beigned as well
+
+
+ # Plan page sections
+
+ ## Section 
+-Logo + Navigation
+-Hero
+-Featured in
+-How it works
+-Meals and list of diets
+-Testinonials + Gallery
+-Pricing + Features
+-CTA call to action 
+-Footer 
+
+
+ ## First Ideas and Sketch
+
+ ## Design and development
+ 
+
+
+
+ ## PRINCIPLE OF RESPONSIVE DESIGN
+ --Before starting your project make sure, you start with responsive design.
+
+ --What is Responsive web-design
+Design techniques to make a webpage adjust its layout and visual style to any possible screen size(window or viewport size)
+in Practice, this means that responsive design makes websites usable on all devices, such as desktop computers,tablets, and mobile phones 
+
+It a set of practices, not a separate technology. its just CSS 
+
+
+ ##  RESPONSIVE DESIGN INGREDIENTS 
+
+ ## --FLUID LAYOUTS 
+-To allow webpage to adapt to current viewport width(or even height)
+-Use % percentage(or vh/vw) unit instead of px for elements that should adapt to viewport(usually layout)
+-Use max-with instead of width
+
+## --RESPONSIVE UNITS 
+-Use rem unit instead of px for most lengths
+-To make it easy to scale the entire layout down(or up)automatically
+
+Note: setting 1rem to 10px for easy calculations
+
+## --FLEXIBLE IMAGES
+-By default, images dont scale automatically as we change the viewport, so we need to fix that
+
+-Always use % percentage for immage dimensions, together with the max-width property 
+
+
+## --Media Queries 
+-Bring responsive sites to life, allow developers to create different versions of a website for different types of devices because different devices has differnt width.
+
+-To change CSS styles on certain viewport widths(called breakpoints)
+
+We need to start creating a fluid layout,responsive units and Flexible images  from the very begining.
+
+
+
+# STRATEGIES IN BUILDING A WEBSITE 
+
+## -- DESKTOP-FIRST VS MOBILE-FIRST DEVELOPMENT
+
+--Start writing CSS for the desktop: large screen 
+--Then, media queries shrink design to smaller screens.
+
+
+
+
+
 
 
