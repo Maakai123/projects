@@ -166,14 +166,55 @@ We need to start creating a fluid layout,responsive units and Flexible images  f
 
 # STRATEGIES IN BUILDING A WEBSITE 
 
-## -- DESKTOP-FIRST VS MOBILE-FIRST DEVELOPMENT
+## -- DESKTOP-FIRST 
 
 --Start writing CSS for the desktop: large screen 
 --Then, media queries shrink design to smaller screens.
 
+## -- MOBILE-FIRST DEVELOPMENT
+Start writing CSS for mobile devices: small screen 
+Then, mediad queries expand design to large screen
+Forces us to reduces websites and apps to the absolute essentials.
 
 
+## ---MAX-WIDTH 
+If the container width is larger than the specified max width, the the width of the element is equal that value that was specified.
+
+How ever if the container width is lesser than the specified max width,the width of the element will be 100 percent of the conatiner element width.
 
 
+## --REM 
+Root Element font size
+Root Element is the HTML element, if we dont define any font size in our HTML 1 REM will be default font size od the browser, 16px
+.text{
+    /*max-width: 1000px;*/
+    background-color: red;
+    padding: 100px;
+    max-width: 50rem; /*800px*/
+    padding: 4rem; /*4*16= 64px*/
+    font-size:2rem; /*2*16= 32
+    so default changes to 32px because i decalered a font-size
+    if font size on html is declared, default wont be 16 again rather 20*/
+    /*By default 1rem = 16px *50 = 800*/
+}
+
+## NOTE
+
+When building media queries, if you want to build for mobile, you want the length to be smaller you can use leave every element value in rems and just adjust the font size in the html everything will shrink.
+always set the set the default or root font-size in html to 10px so it can be easy for calculations but its not perfect because it will always remain 10px and the user cant increase it.
+
+so the best way to go is set font size to the percentage of your browser
+html{
+    /*font-size: 10px;*/
+    /* our fix value 10 / divide default browser value 16 = 0.625* 100 = 62.5%*/
+     /*Percentage of user's browser font-size settings*/
+    font-size: 62.5%
+}
+The user can now increase the font size on thier browser, if he/she wants to increase font size to 7.5, just increase it to 12px which 128o.625
+
+
+https://meet.google.com/qoi-wsfg-gnq
+
+1:33:55
 
 
