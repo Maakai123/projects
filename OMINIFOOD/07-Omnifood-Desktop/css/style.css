@@ -55,7 +55,8 @@ Check text.md
 html{
     /*font-size: 10px;*/
     /* our fix value 10 / default browser value 16 = 0.625= 62.5%*/
-    /*Percentage of user's browser font-size settings*/
+    /*Percentage of user's browser font-size settings but our 1 rem is = 10
+    */
     font-size: 62.5%
 }
 body{
@@ -65,16 +66,21 @@ body{
     color:#555
 }
 
-.text{
-    /*max-width: 1000px;*/
-    background-color: red;
-    padding: 100px;
-    max-width: 50rem; /*800px*/
-    padding: 4rem; /*4*16= 64px*/
-    font-size:2rem; /*2*16= 32
-    so default changes to 32px because i decalered a font-size
-    if font size on html is declared, default wont be 16 again rather 10*/
-    /*By default 1rem = 16px *50 = 800*/
+.hero{
+    /*use grid for consistency
+    give hero container a fix width*/
+    /*Use max-with b/c when adjusting the screen the image cant adjust
+   with max-width of Element larger than the conaintainer it will occupy 100% of the container
+    can adjust and stop when larger than specified width */
+    max-width: 130rem /*130* 10px = 1300px*/;
+    display: grid;
+    /*center image or Element  in the viewport*/
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
 
-    color:#fff;
+}
+
+.hero-img{
+    /*give a width of 100% so it will fill its container*/
+    width: 100%;
 }

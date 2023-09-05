@@ -185,7 +185,7 @@ How ever if the container width is lesser than the specified max width,the width
 
 ## --REM 
 Root Element font size
-Root Element is the HTML element, if we dont define any font size in our HTML 1 REM will be default font size od the browser, 16px
+Root Element is the HTML element, if we dont define any font size in our HTML 1 REM will be default font size of the browser, 16px
 .text{
     /*max-width: 1000px;*/
     background-color: red;
@@ -210,11 +210,13 @@ html{
      /*Percentage of user's browser font-size settings*/
     font-size: 62.5%
 }
-The user can now increase the font size on thier browser, if he/she wants to increase font size to 7.5, just increase it to 12px which 128o.625
+The user can now increase the font size on thier browser, if he/she wants to increase font size to 7.5, just increase it to 12px which 128o.625 but 1 rem is still 10px, when you set width and padding
+they still multiply by 10px as default.
 
 
 https://meet.google.com/qoi-wsfg-gnq
 
-1:33:55
+## NOTE
+when creating buttons use anchor element like a link , because link goes somewhere or other pages while a button use for actions which is not for navigation.
 
 
