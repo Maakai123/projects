@@ -11,7 +11,7 @@ user goals of your website project which includes providing information, selling
 for example Business goal: Selling premium dog food
 user goal example:Finding high-quality dog food for good price 
 
--Define a target audeience. Be really specific if possible and if it majkes sense for your website 
+-Define a target audience. Be really specific if possible and if it majkes sense for your website 
 Example Women 20 to 40 years old, living in Europe, earning over 2000$ with a passion for dogs 
 
 

@@ -1,7 +1,7 @@
 
 
 /*
----- 01 TYPOGRAPHY SYTEM
+---- 01 TYPOGRAPHY SYsTEM
 
 
 --FONT SIZE SYSTEM (px)
@@ -9,19 +9,25 @@
 
 --Font weights:
 Default: 400
+Medium:500
+Semi-bold:600
+Bold:700
+
 --Line heights:
 Default:1
-
+Small:1.05
+Paragraph default 1.6
 
 
 
 
 ---02 COLORS
 --Primary: #e67e22
-Tints:
-Shades: 
+Tints:#fdf2e9
+Shades:#cf711f
 Accents: 
 --Greys:#555
+#333;
 
 ---03 Images
 --www.unsplash.com (generate high quality images)
@@ -31,7 +37,7 @@ Accents:
 
 
 ----06 BORDER-RADIUS 
-
+9px
 ----07 WHITESPACE
 
 
@@ -43,6 +49,10 @@ SPACING SYSTEM (px)
 NOTE  --Before starting your project make sure, 
 you start with responsive design.
 Check text.md
+
+
+also check colors Tint and shade Generators to get dark and light versions of any color
+Go to Coolors.co to check color contrast
 */
 
 
@@ -60,27 +70,296 @@ html{
     font-size: 62.5%
 }
 body{
-    font-family: sans-serif;
+    font-family:"Rubik", sans-serif;
     line-height: 1;
     font-weight: 400;
-    color:#555
+    color:#555;    
 }
 
+/*************************************/
+/*GENERAL AND RESUSABLE COMPONENTS*/
+.heading-primary{
+    font-size: 5.2rem;/*52px*/
+    font-weight: 700;
+    line-height: 1.05;
+    color:#333;
+    letter-spacing:-0.5px;
+    margin-bottom: 3.2rem; /*Push a hero description down*/
+     
+}
+   
+   /*For anchor tag*/
+/*This is the original state always put transistion here*/
+.btn:link, .btn:visited{
+    /*Since its a anchor tag we need to style the above sudo classes*/
+    /*An Anchor tag is an inline element, for padding to work we need
+    make display an inline-block*/
+    display:inline-block;
+    /*background-color:#e67e22;*/
+    color:#fff;
+    font-size:2rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding:1.6rem 3.2rem;
+    border-radius:9px;
+    
+/*add animations
+transition(The property  to be animated which is bg-color and color, time)*/
+transition: /*all*/ background-color  0.3s;
+    
+}
+    
+/* make 1 btn remain with the color, make 1 btn take another color*/
+.btn--full:link,
+.btn-full:visited{
+background-color:#e67e22;
+color:#fff;
+}
+    
+    
+    
+    /*Hover state*/
+.btn--full:hover,
+.btn-full:active{
+    background-color:#cf711f;
+    color:#fff;
+}
+    
+    
+    
+.btn--outline:link,
+.btn--outline:visited{
+ background-color:#fff;
+  color:#555;
+}
+    
+    /*Hover state*/
+    
+.btn--outline:hover,
+.btn--outline:active{
+background-color:#fdf2e9;
+    
+/* border:3px solid #fff, this will make it jump inside*/
+    
+/*Trick to add border inside of Elements*/
+ box-shadow:inset 0 0 0 3px #fff ;
+ }
+    
+ /*reuseable way of creating margin to a particular btn*/
+.margin-right-sm{
+    /*When adding helper classes add important so will get piority*/
+margin-right: 1.6rem !important;
+}
+
+
+
+/*Margin: 0 auto=> since left and right are d same, it will center the container*/
+.container{
+    max-width:120rem;
+    padding: 0 3.2rem; /*create space at both sides or substracting 32px from both sides */
+    margin: 0 auto;
+}
+
+.grid{
+    display:grid;
+    gap:9.6rem
+}
+
+.grid--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+
+
+
+/*************************************/
+/*HEADER*/
+/*************************************/
+
+.header{
+ display:flex;
+ justify-content: space-between;
+ align-items:center;
+ background-color: #fdf2e9;
+
+ /*Give navigation a fix height, b/c we want it to be sticky if not padding would be the best*/
+ height: 9.6rem;
+ padding: 0 4.8rem;
+}
+
+
+.logo{
+height: 2.2rem;
+}
+
+/*************************************/
+/*NAVIGATION*/
+/*************************************/
+
+.main-nav-list{
+    list-style: none;
+    display:flex;
+    gap:3.2rem;
+    align-items: center;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color:#333;
+    font-size:1.8rem;
+    font-weight: 500;
+    transition: all 0.3s /*Always put this on the currrent state*/;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+    color:#cf711f;
+    
+}
+/*We want everything to apply when we have both the main nave-link and the cta-link*/
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+padding: 1.2rem 2.4rem;
+border-radius:9px;
+color:#fff;
+background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active{
+    background-color:#cf711f;
+}
+
+/*************************************/
+/*HERO SECTION*/
+/*************************************/
+.section-hero{
+    background-color: #fdf2e9;
+    padding: 4.8rem 0 9.6rem 0;
+}
+/*Check up (tints and shades generator on google), past your  color hex to generate, look for its tints (light)
+Shades (Dark)*/
 .hero{
     /*use grid for consistency
     give hero container a fix width*/
     /*Use max-with b/c when adjusting the screen the image cant adjust
    with max-width of Element larger than the conaintainer it will occupy 100% of the container
     can adjust and stop when larger than specified width */
-    max-width: 130rem /*130* 10px = 1300px*/;
+    max-width: 130rem /*130* 10px = 1300px 1300/10 = 130rem 62px/ 10 = 6.2rem*/;
     display: grid;
     /*center image or Element  in the viewport*/
     margin: 0 auto;
+    padding:0 3.2rem;/*This will help reducing the screen size not to squize*/
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap:9.6rem;
 
 }
+
+
+
+
+.hero-description{
+    font-size:2rem;
+    line-height: 1.6;
+    margin-bottom: 4.8rem;/*Push a tags down*/
+}
+
 
 .hero-img{
     /*give a width of 100% so it will fill its container*/
     width: 100%;
 }
+
+
+
+/*************************************/
+
+
+
+
+.delivered-meals{
+display:flex;
+margin-top: 8rem;
+align-items: center;
+gap:1.6rem;
+}
+
+/*All the images will align to left on a straingt line*/
+.delivered-images{
+display:flex;
+}
+
+/*Images itself*/
+
+.delivered-images img{
+    height: 4.8rem;
+    width: 4.8rem;
+    border-radius: 50%;
+    /*How to overlap images ontop of each other*/
+    margin-right: -1.6rem;
+    border:3px solid #fdf2e9;
+}   
+
+/*Remove margin from last picture so that 
+delivered text will have space*/
+.delivered-images img:last-child {
+ margin: 0;
+}
+
+.delivered-text{
+  font-size: 1.8rem;
+  font-weight: 600; 
+  
+}
+
+.delivered-text span{
+ color: #cf711f;
+ font-weight: 700;
+}
+
+
+
+/*************************************/
+/*HOW IT WORKS SECTION*/
+/*************************************/
+
+
+
+.section-how {
+padding:9.6rem 0;
+background-color: orangered;
+}
+
+
+
+
+/*How to target the inner divs*/
+/*
+.section-how div div {
+    padding: 100px;
+    font-size:50px;
+    background-color:aqua;
+}
+
+.section-how div:nth-child(1){
+    background-color: aqua;
+}
+.section-how div:nth-child(2){
+    background-color: olivedrab;
+}
+.section-how div:nth-child(3){
+    background-color:red;
+}
+.section-how div:nth-child(4){
+    background-color:#e67e22;
+}
+
+*/
