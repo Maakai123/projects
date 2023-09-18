@@ -265,7 +265,204 @@ z-index:-1
     width: 30%;
 }
 
+/*************************************/
+/*MEALS SECTION, CARDS*/
+/*Instead of SVGS use Ionicons, copy the javascript
+codes and use the name of the icons*/
+/*************************************/
 
+/*When copying cards  make sure the images are the same with same dimension */
+.section-meals{
+  padding: 9.6rem;  
+}
+
+.meal{
+  box-shadow: 0 2.4rem 0.8rem rgba(0,0,0, 0.075);  /*Vertical, horizontal, blur, then rgba for tr
+  transperancy*/
+  border-radius: 11px;
+  /*Image covers the rounded conners use
+  overflow:hidden*/
+overflow: hidden;
+transition: all 0.4s
+/*The cards will jump smoothly*/
+/*padding: 2.4rem;
+
+padding wont be fine, when designing a card and image at the
+Top give the image a separate DIV and rest another Div */
+}
+
+/*To make the meal pics jump, when we hover*/
+.meal:hover{
+/*Make it jump upwards*/
+transform: translateY(-1.2rem);
+/*since its big reduce the opacity */
+box-shadow: 0 2.4rem 6.4rem rgba(0,0,0, 0.075);
+}
+.meal-content{
+padding: 3.2rem 4.8rem 4.8rem 4.8rem ;
+}
+.meal-tags{
+margin-bottom:1.2rem;
+display:flex;
+gap: 0.4rem;
+}
+.tag{
+/*Since its a Span add display inline block, it can be padded
+ */
+display:inline-block;
+font-size: 1.2rem;
+padding:0.4rem 0.8rem;
+text-transform: uppercase;
+/*since its vegetarian, use green use open color*/
+background-color: #51cf66;
+color: #333;
+border-radius:100px;
+font-weight: 600;
+}
+
+/*To give vegan and paloe diff colours*/
+.tag--vegetarian{
+    background-color: #51cf66;
+}
+
+.tag--vegan{
+background-color: #94d82d; 
+}
+
+.tag--paleo {
+background-color: #ffd43b; 
+}
+
+.meal-title{
+    font-size: 2.4rem;
+    color:#333;
+    font-weight:600;
+    margin-bottom:3.2rem
+}
+
+.meal-attributes{
+list-style: none;
+display:flex;
+flex-direction: column;
+gap:2rem;
+}
+.meal-attribute{
+font-size: 1.8rem;
+/*This is now the conatiner of the ion icons, make flex so we can
+work with the icons*/
+display:flex;
+align-items: center; /*This will align them vertically */
+gap: 1.6rem;
+}
+
+.meal-icon{
+height: 2.4rem;
+width: 2.4rem;
+color:#e67e22;
+}
+
+.meal-img{
+width: 100%;
+}
+
+.all-recipes {
+text-align: center;
+font-size: 1.8rem;
+}
+.list{
+list-style:none; 
+display: flex;
+flex-direction: column;
+gap:1.6rem;
+}
+
+.list-item{
+    font-size:1.8rem;
+    display:flex;
+    align-items: center;
+    gap:1.6rem;
+
+}
+.list-icon {
+ width:3rem;
+ height: 3rem; 
+ color:#e67e22;
+}
+
+
+/*************************************/
+/*TESTIMONIALS SECTION*/
+/*************************************/
+
+.section-testimonials{
+    background-color: #fdf2e9;
+    display:grid;
+    /*We need little space between the column */
+    grid-template-columns: 55fr 45fr;
+    align-items: center;
+    
+}
+
+
+.testimonials-container {
+    padding: 9.6rem;
+  }
+
+  
+.testimonials{
+ display:grid;
+ grid-template-columns: 1fr 1fr;
+ row-gap:4.8rem;
+ column-gap: 8rem;
+}
+
+.testimonial-img{
+    width:6.4rem;
+    border-radius: 50%;
+    margin-bottom:1.2rem;
+}
+
+
+.testimonial-text {
+ font-size: 1.8rem; 
+ line-height:1.8;
+ margin-bottom: 1.6rem;  
+}
+
+.testimonial-name{
+    font-size: 1.6rem;
+    color:#6f6f6f
+    /* The only gray color that can work contrast chacker */
+
+}
+
+.gallery-item{
+    overflow: hidden;
+}
+.gallery{
+display:grid;
+grid-template-columns: repeat(3, 1fr);
+gap:1.6rem
+}
+
+/*To remove white Spaces from Images*/
+
+.gallery-item img {
+    /*img are inline-Element by default
+    use block to close all the line*/
+
+    display:block;
+ /*The images will push away the whole content
+ make it flexible*/
+ width: 100%;
+
+ /* make inimation smooth*/
+}
+
+.gallery-item img:hover{
+ transform: scale(1.1);
+ /*Images will jump up*/
+}
 /*How to target the inner divs*/
 /*
 .section-how div div {
@@ -288,5 +485,5 @@ z-index:-1
 }
 
 
-4:40:43
+5:49:49
 */

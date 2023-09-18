@@ -31,7 +31,8 @@ Shades:#cf711f
 Accents: 
 --Greys:#555
 #333;
-
+#6f6f6f(lighest grey allowed on #fdf2e9)
+    /* The o
 ---03 Images
 --www.unsplash.com (generate high quality images)
 --for customers use(www.uifaces.com)
@@ -40,7 +41,8 @@ Accents:
 
 
 ----06 BORDER-RADIUS 
-9px
+Default 9px
+medium: 11px;
 ----07 WHITESPACE
 
 
@@ -99,7 +101,7 @@ body{
     
 /*add animations
 transition(The property  to be animated which is bg-color and color, time)*/
-transition: /*all*/ background-color  0.3s;
+transition: all background-color  0.3s;
     
 }
     
@@ -138,7 +140,24 @@ background-color:#fdf2e9;
 /*Trick to add border inside of Elements*/
  box-shadow:inset 0 0 0 3px #fff ;
  }
-    
+ 
+ /*Reuse able*/
+ .link:link,
+ .link:visited{
+    display: inline-block;
+/*Since its link*/
+color:#cf711f;
+text-decoration:none;
+/* Will help keep the color even if i change color*/
+border-bottom: 1px solid currentColor;
+
+ }
+ 
+ .link:hover,
+ .link:active {
+    color:#cf711f;
+    border-bottom: 1px solid transparent;
+ }
  /*reuseable way of creating margin to a particular btn*/
 .margin-right-sm{
     /*When adding helper classes add important so will get piority*/
@@ -146,7 +165,15 @@ margin-right: 1.6rem !important;
 }
 
 
+.margin-bottom-md {
+/*Since conainer is grid and it apply to all cards
+use this helper class to appligh to just 1 conatiner*/
+margin-bottom: 4.8rem !important;
+}
 
+.center-text {
+text-align: center;
+}
 /*Margin: 0 auto=> since left and right are d same, it will center the container*/
 .container{
     max-width:120rem;
@@ -219,4 +246,10 @@ color:#cf711f;
 text-transform: uppercase;
 margin-bottom: 1.6rem;
 letter-spacing: 0.75px ;
+}
+
+
+strong{
+    font-weight: 500;
+    /*Default*/
 }
