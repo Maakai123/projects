@@ -1,206 +1,5 @@
 
 
-/*
----- 01 TYPOGRAPHY SYsTEM
-
-
---FONT SIZE SYSTEM (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
-
---Font weights:
-Default: 400
-Medium:500
-Semi-bold:600
-Bold:700
-
---Line heights:
-Default:1
-Small:1.05
-Medium:1.2
-Paragraph default 1.6
-
---Letter Spacing 
--0.5px
--0.75px
-
-
----02 COLORS
---Primary: #e67e22
-Tints:#fdf2e9
-Shades:#cf711f
-Accents: 
---Greys:#555
-#333;
-
----03 Images
---www.unsplash.com (generate high quality images)
---for customers use(www.uifaces.com)
-
----05 SHADOWS
-
-
-----06 BORDER-RADIUS 
-9px
-----07 WHITESPACE
-
-
-SPACING SYSTEM (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
-
-
-
-NOTE  --Before starting your project make sure, 
-you start with responsive design.
-Check text.md
-
-
-also check colors Tint and shade Generators to get dark and light versions of any color
-Go to Coolors.co to check color contrast
-*/
-
-
-
-*{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
-}
-html{
-    /*font-size: 10px;*/
-    /* our fix value 10 / default browser value 16 = 0.625= 62.5%*/
-    /*Percentage of user's browser font-size settings but our 1 rem is = 10
-    */
-    font-size: 62.5%
-}
-body{
-    font-family:"Rubik", sans-serif;
-    line-height: 1;
-    font-weight: 400;
-    color:#555;    
-}
-
-/*************************************/
-/*GENERAL AND RESUSABLE COMPONENTS*/
-   
-   /*For anchor tag*/
-/*This is the original state always put transistion here*/
-.btn:link, .btn:visited{
-    /*Since its a anchor tag we need to style the above sudo classes*/
-    /*An Anchor tag is an inline element, for padding to work we need
-    make display an inline-block*/
-    display:inline-block;
-    /*background-color:#e67e22;*/
-    color:#fff;
-    font-size:2rem;
-    font-weight: 600;
-    text-decoration: none;
-    padding:1.6rem 3.2rem;
-    border-radius:9px;
-    
-/*add animations
-transition(The property  to be animated which is bg-color and color, time)*/
-transition: /*all*/ background-color  0.3s;
-    
-}
-    
-/* make 1 btn remain with the color, make 1 btn take another color*/
-.btn--full:link,
-.btn-full:visited{
-background-color:#e67e22;
-color:#fff;
-}
-    
-    
-    
-    /*Hover state*/
-.btn--full:hover,
-.btn-full:active{
-    background-color:#cf711f;
-    color:#fff;
-}
-    
-    
-    
-.btn--outline:link,
-.btn--outline:visited{
- background-color:#fff;
-  color:#555;
-}
-    
-    /*Hover state*/
-    
-.btn--outline:hover,
-.btn--outline:active{
-background-color:#fdf2e9;
-    
-/* border:3px solid #fff, this will make it jump inside*/
-    
-/*Trick to add border inside of Elements*/
- box-shadow:inset 0 0 0 3px #fff ;
- }
-    
- /*reuseable way of creating margin to a particular btn*/
-.margin-right-sm{
-    /*When adding helper classes add important so will get piority*/
-margin-right: 1.6rem !important;
-}
-
-
-
-/*Margin: 0 auto=> since left and right are d same, it will center the container*/
-.container{
-    max-width:120rem;
-    padding: 0 3.2rem; /*create space at both sides or substracting 32px from both sides */
-    margin: 0 auto;
-}
-
-.grid{
-    display:grid;
-    gap:9.6rem
-}
-
-.grid--2-cols {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.grid--3-cols {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-/*both header one and two should inherit same properties*/
-.heading-primary,
-.heading-secondary{
-color:#333;
- font-weight:700;
- letter-spacing:-0.5px;
- /*color:#45260a*/
- /*color:#45260a*/
-}
-.heading-primary{
-    font-size: 5.2rem;/*52px*/
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 3.2rem; /*Push a hero description down*/
-     
-}
-
-.heading-secondary{
-    font-size:4.4rem;
-    line-height:1.2 ;
-    margin-bottom: 9.6rem;
-
-}
-
-.subheading{
-display:block;
-font-size:1.6rem;
-font-weight: 500;
-color:#cf711f;
-text-transform: uppercase;
-margin-bottom: 1.6rem;
-letter-spacing: 0.75px ;
-}
-
 
 
 /*************************************/
@@ -351,8 +150,39 @@ delivered text will have space*/
  font-weight: 700;
 }
 
+/*************************************/
+/*FEATURED IN SECTION*/
+
+/*************************************/
+
+.section-featured {
+   padding: 4.8rem 0 3.2rem 0; 
+}
+
+.heading-featured-in{
+    font-size:1.4rem;
+    text-transform: uppercase;
+    letter-spacing:0.75px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2.4rem;
+    color:#888;
+}
 
 
+.logos {
+    display:flex;
+    justify-content: space-around;
+
+}
+
+/*Make pix smaller*/
+.logos img{
+    height: 3.2rem;
+    /*Use filter to change brightnes and others of pics*/
+    filter:brightness(0);
+    opacity: 50%;
+}
 /*************************************/
 /*HOW IT WORKS SECTION*/
 /*How the website work*/
@@ -364,8 +194,75 @@ delivered text will have space*/
 padding:9.6rem 0;
 }
 
-.step{
-    width: 50%;
+.step-number{
+ font-size:8.6rem;
+ font-weight:600;
+ /*To make number lighter you can use #fff or #ddd*/
+ color:#ddd;
+ margin-bottom: 1.2rem;
+}
+
+.step-description {
+font-size: 1.8rem;
+line-height: 1.8;
+}
+
+.step-img-box{
+display:flex;
+position: relative;
+justify-content: center;
+align-items: center;
+}
+
+/*Lets add circle behind the image, we ADD 
+a sudo element to Image, since we cant just add file
+to HTML
+we use before sudo which canbe used onces*/
+
+.step-img-box::before,
+.step-img-box::after {
+    content:"";
+    display:block;
+   
+   
+    border-radius: 50%;
+
+    /*To position it on top so we can push behind the phone image*/
+    position: absolute;
+    /*top:50%;*/
+    /*left:50%;*/
+    /*To alight perfectly*/
+    /*transform:translete(-50%,-50%)*/
+
+   
+
+}
+
+.step-img-box::before{
+    width: 60%;
+     /*height: 60%;*/
+     padding-bottom: 60%;
+     /*padding will give a height and make it
+     visible*/
+     background-color: #fdf2e9;
+      /*Use z index to push the circle image behind*/
+      z-index: -2;
+}
+
+/*get another tint color*/
+
+.step-img-box::after {
+width: 45%;
+padding-bottom: 45%;
+background-color: #fae5d3;
+/*To make the smaller circle one ontop of the bigger
+circle, give bigger one -2 and smaller -1*/
+
+z-index:-1
+}
+
+.step-img{
+    width: 30%;
 }
 
 
@@ -390,4 +287,6 @@ padding:9.6rem 0;
     background-color:#e67e22;
 }
 
+
+4:40:43
 */
