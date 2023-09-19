@@ -225,7 +225,12 @@ color:#333;
      
 }
 
-
+.list{
+    list-style:none; 
+    display: flex;
+    flex-direction: column;
+    gap:1.6rem;
+ }
 .heading-tertiary{
     font-size: 3.0rem;
     line-height: 1.2;
