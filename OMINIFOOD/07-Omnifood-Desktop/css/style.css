@@ -48,7 +48,7 @@ height: 2.2rem;
     color:#cf711f;
     
 }
-/*We want everything to apply when we have both the main nave-link and the cta-link*/
+/*We want everything to apply when we have both the main nave-link and the cta-link section 5*/
 .main-nav-link.nav-cta:link,
 .main-nav-link.nav-cta:visited {
 padding: 1.2rem 2.4rem;
