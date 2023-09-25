@@ -360,6 +360,7 @@
       arranged food"/>
     </figure>
   </div>
+</section>
 
   <!--Pricing-->
 
@@ -371,9 +372,9 @@
       </h2>
     </div>
 
-    <div class="container grid grid--2-cols">
+    <div class="container grid grid--2-cols  margin-bottom-md">
       <!--STARTER-->
-      <div class="pricing-plan">
+      <div class="pricing-plan pricing-plan--starter">
         <header class="plan-header">
         <p class="plan-name">Starter</p>
         <p class="plan-price"><span>$</span>399</p>
@@ -390,12 +391,17 @@
           <li class="list-item">
             <ion-icon class="list-icon" 
             name="checkmark-circle-outline"></ion-icon>
-            <span>Order times are between 11am and 9am</span>
+            <span>Order from  11am to 9am</span>
           </li>
           <li class="list-item">
             <ion-icon class="list-icon" 
             name="checkmark-circle-outline"></ion-icon>
             <span>Delivery is free</span>
+          </li>
+
+          <li class="list-item">
+            <ion-icon class="list-icon"  name="sunny-outline"></ion-icon>
+    
           </li>
         </ul>
 
@@ -407,7 +413,7 @@
 
       <!--COMPLETE-->
 
-      <div class="pricing-plan">
+      <div class="pricing-plan pricing-plan--complete">
         <header class="plan-header">
         <p class="plan-name">Complete</p>
         <p class="plan-price"><span>$</span>649</p>
@@ -418,12 +424,12 @@
           <li class="list-item">
             <ion-icon class="list-icon" 
             name="checkmark-circle-outline"></ion-icon>
-            <span>2 meals per day</span>
+            <span><strong>2 meals per day</strong></span>
           </li>
           <li class="list-item">
             <ion-icon class="list-icon" 
             name="checkmark-circle-outline"></ion-icon>
-            <span>Order 24/7</span>
+            <span>Order <strong>24/7</strong></span>
           </li>
           <li class="list-item">
             <ion-icon class="list-icon" 
@@ -441,8 +447,109 @@
         </div>
       </div>
     </div>
+    <div class="container grid">
+      <aside class="plan-details">
+        Prices include all applicable taxes. You can cancel at anytime
+        Both plans include the following:
+      </aside>
+    </div>
+   <!---FEATURES-->
+   <div class="container grid grid--4-cols">
+    <div class="feature">
+      <ion-icon class="feature-icon"   name="infinite-outline"></ion-icon>
+      <p class="feature-title">Never cook again</p>
+      <p class="feature-text">
+        Our subscriptions cover 365 days per year, even including major
+        holidays.
+      </p>
+    </div>
+
+    <div class="feature">
+      <ion-icon class="feature-icon"   name="nutrition-outline"></ion-icon>
+      <p class="feature-title">Local and organic</p>
+      <p class="feature-text">
+       Our cooks only use local,fresh, and organic products to prepare 
+       your meals.
+
+      </p>
+    </div>
+
+    <div class="feature">
+      <ion-icon class="feature-icon"  name="leaf-outline"></ion-icon>
+      <p class="feature-title">Never cook again</p>
+      <p class="feature-text">
+        Our cooks only use local, fresh, and organic products
+        to prepare your meals.
+      </p>
+    </div>
+
+
+    <div class="feature">
+      <ion-icon class="feature-icon"  name="Pause-outline"></ion-icon>
+      <p class="feature-title">No waste</p>
+      <p class="feature-text">
+      All our partners only use reuseable containers to package all 
+      your meals.
+      </p>
+    </div>
+   </div> 
   </section>
-</section>
+
+
+  <!--CALL TO ACTION-->
+
+  <section class="section-cta">
+    <div class="container">
+      <div class="cta">
+      <div class="cta-text-box">
+        <h2 class="heading-secondary">
+          Get your first meal for free!
+        </h2>
+        <p class="cta-text">
+          Healthy, tasty and hassle-free meals are waiting for you. Start eating well today. You can cancel or pause anytime.
+           And the first meal is on us!
+        </p>
+        <!--FORM-->
+        <form class="cta-form" action="#">
+          <div>
+            <label class="full-name">Full Name</label>
+            <input id="full-name"
+            type="text"
+            placeholder="John Smith"
+            required>
+          </div>
+
+          <div>
+            <label for="email">Email address</label>
+            <input id="email"
+            type="email"
+            placeholder="me@gmail.com"
+            required>
+          </div>
+
+          <div>
+            <label for="selector-where">Where did you hear from us</label>
+           <select id=""  required>
+            <option value="">Please choose one option</option>
+             <option value="friends">Friends and family</option>
+             <option value="youtube">YouTube</option>
+             <option value="podcast">Podcast</option>
+             <option value="ad">Facebook ad</option>
+             <option value="others">Others</option>
+           </select>
+          </div>
+          <button class="btn  btn--form">Sign up now</button>
+
+        </form>
+      </div>
+
+      <!--IMAGE-->
+      <!--for screen readers-->
+      <div class="cta-img-box" role="img" aria-label="woman enjoying
+      food"></div>
+    </div>
+  </div>
+  </section>
 </main>
     
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
