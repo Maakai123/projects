@@ -1,0 +1,35 @@
+/*Responding to small laptops,
+ dont use px for Media queries cuase it wont respond
+remember rem and em do not depend on html font size in media queries
+Insteam 1rem = em = 16px rem=root font size and current foot size  rem has bugs in some browsers
+use use EM in media queries */
+
+/*************************************/
+ /* 84rem * 16 = 1344px for small desktops */
+/*************************************/
+
+/*for small laptops 1350/ 16( value of em )=84em
+When the screen hits 1344 it will apply*/
+
+@media(max-width:84em){
+ .hero {
+    max-width: 120rem;
+ }
+
+/*To reduce the number of lines in header since its 4 lines
+    lets change it to 3 lines*/
+.heading-primary{
+        font-size: 4.4rem;
+}
+
+.gallery{
+/*Change grid to 3 coloums*/
+grid-template-columns: repeat(2, 1fr);
+}
+
+}
+
+
+
+
+

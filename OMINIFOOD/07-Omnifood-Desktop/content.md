@@ -141,4 +141,53 @@ Privacy & terms
 
 
 
-46:11
+HOW MEDIA QUERY WORKS WITH MAX-WITDTH
+
+@media(max-width:600px) the code will work from 0px-600px anything above will not work again
+
+@media(max-width:1200px) the code will work from 0-1200px, anything above will not work again
+
+The above overrides specific part of the css
+
+if a phone is 400px, both 600 and 1200px will apply
+if a phone is 1000px, 0nly 1200px media query will apply because it is greater than 600 and less than 1200px
+
+Breakpoints 
+
+These are viewport width we want our design to change
+Based on populat devices is a bad practice
+
+Good strategy
+Based on screen width ranges : we will look at most used width of all categories, like phones, tabs and desktop, group them in a logical way before applying breakpoint.
+we are not setting  breakpoint at one specific device but between several device sizes
+
+Groups
+Phones : 300px-500px breakpoint at 600px
+Most Tabs: 600px-900px breakpoint at 900px
+landscape tabs: 900-1100px breakpoint 1200px
+Destop : 1200px
+
+
+
+
+Perfect strategy: ignore devices and categories, look at web design put a breakpoint where ever the design looks bad.
+
+always use the Good stratey and perfect strategy
+
+
+
+@media(max-width: 1200px){
+.section-hero {
+    background-color: brown;
+    /*turn brown color when hit 1200px*/
+}
+}
+
+
+
+@media(max-width: 600px){
+    .section-hero {
+        background-color:;
+        /*turn brown color when hit 1200px*/
+    }
+    }
