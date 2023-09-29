@@ -150,3 +150,129 @@ const  displayNumbers =  [200, -200, 340, -300, -20, 50, 400, -460]
 const EuroUsd = displayNumbers.filter( positive => positive > 0)
 .map(postive => postive * eurToUsd).reduce((acc, curr) => acc + curr, 0)
 console.log( EuroUsd)
+
+//Big to small decend
+const sortItems = [200, -200, 340, -300, -20, 50, 400, -460] 
+const value = sortItems.sort((a,b ) => b-a)
+console.log(value)
+
+
+//small to big Accend 
+const sortNumbers = function(arr){
+
+const items = arr.sort((a,b) => a-b)
+console.log(items)
+}
+
+sortNumbers([100,500,200,300,500,100,-300,0])
+
+
+//big to small
+const sortdecend = function(arr){
+
+    const items = arr.sort((a,b) => b-a)
+    console.log(items)
+    }
+    
+    sortdecend([100,500,200,300,500,100,-300,0])
+
+
+    function descendingSort(arr) {
+        // Your code here
+       return arr.sort((a,b) => b.localeCompare(a))
+      }
+      
+      const fruits = ["apple", "banana", "cherry", "date"];
+      console.log(descendingSort(fruits)); // Should output ["date", "cherry", "banana", "apple"]
+      
+
+      function sortByProperty(arr, age) {
+        // Your code here
+        const property =  arr.sort((a, b) => a.age - b.age);
+        console.log(property)
+      }
+      
+      const students = [
+        { name: "Alice", age: 22 },
+        { name: "Bob", age: 19 },
+        { name: "Charlie", age: 25 },
+      ];
+
+      sortByProperty(students)
+
+
+
+    const y = Array.from({length:7}, () => 1)
+    console.log(y)
+
+    const account1 = {
+        owner: 'Jonas Schmedtmann',
+        movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+        interestRate: 1.2, // %
+        pin: 1111,
+      };
+      
+      const account2 = {
+        owner: 'Jessica Davis',
+        movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+        interestRate: 1.5,
+        pin: 2222,
+      };
+      
+      const account3 = {
+        owner: 'Steven Thomas Williams',
+        movements: [200, -200, 340, -300, -20, 50, 400, -460],
+        interestRate: 0.7,
+        pin: 3333,
+      };
+      
+      const account4 = {
+        owner: 'Sarah Smith',
+        movements: [430, 1000, 700, 50, 90],
+        interestRate: 1,
+        pin: 4444,
+      };
+      
+      const accounts = [account1, account2, account3, account4];
+
+
+    const bankDepositSum = accounts.map(acc => acc.movements).flat()
+    console.log(bankDepositSum)
+
+    //2
+
+    const bankDepositSum2 = accounts.flatMap(acc => acc.movements)
+    .filter( mov => mov > 0)
+    .reduce((acc,value) => acc + value , 0)
+    console.log(bankDepositSum2) //25180
+
+    //q2 Count how many deposit there have  been in a bank with atleast 1000 Dollars
+    const deposit100 = accounts.flatMap( acc => acc.movements).filter(fil => fil >= 1000).length
+    console.log(deposit100) //6 deposits
+
+
+    const { deposits, withdrawals } = accounts.flatMap(acc => acc.movements)
+    .reduce((sums, curr) => {
+      curr > 0? (sums.deposits += curr) : (sums.withdrawals += curr)
+     // sums[curr > 0 ? 'deposit' : 'widthdraw'] += curr 
+      return sums
+    },
+    { deposits: 0, withdrawals: 0}
+    
+    )
+    console.log(deposits, withdrawals)
+
+  console.log("This".slice(1))
+
+   const convertTitleCase = function(title) {
+    
+    const exceptions = ['a','an','then','but','or','on', 'in', 'with']
+    
+    const capitalize =  title[0].toUpperCase() + title.slice(1) //his = This
+    const titleCase = title.toLowerCase().split('').map(word => exceptions.includes(word)? word :capitalize(word)).join('')
+   
+    return capitalize(titleCase)
+   
+   }
+
+ console.log(convertTitleCase("This is nice"))
