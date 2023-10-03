@@ -75,13 +75,29 @@ html{
     /* our fix value 10 / default browser value 16 = 0.625= 62.5%*/
     /*Percentage of user's browser font-size settings but our 1 rem is = 10
     */
-    font-size: 62.5%
+    font-size: 62.5%;
+
+    /* All the element that overflows the view port horizontally, will be hidden, so we
+    can easy navigate  between mobile and desktop */
+    overflow-x: hidden;
+
+ /* To scroll the page smoothly, does not work on Safari browsers, browsers of Iphone and ipad use js to 
+ make it work in all browsers*/
+ 
+ /*scroll-behavior: smooth;*/
+
 }
 body{
     font-family:"Rubik", sans-serif;
     line-height: 1;
     font-weight: 400;
-    color:#555;    
+    color:#555;  
+    
+    /* All the element that overflows the view port horizontally, will be hidden, so we
+    can easy navigate  between mobile and desktop 
+    
+    This only works if there is nothing absolutely positioned in relative to body*/
+    overflow-x: hidden;
 }
 
 /*************************************/
@@ -271,6 +287,14 @@ color:#333;
     display: flex;
     flex-direction: column;
     gap:1.6rem;
+ }
+
+ .list-item {
+ font-size:1.8rem;
+ display:flex;
+ align-items: center;
+ gap:1.6rem;
+ line-height: 1.2;
  }
 .heading-tertiary{
     font-size: 3.0rem;

@@ -191,3 +191,49 @@ always use the Good stratey and perfect strategy
         /*turn brown color when hit 1200px*/
     }
     }
+
+
+### THE PROCESS BEHIND BUILDING A WEBSITE 
+
+
+### Test and Optimize 
+
+### Make sure website works well in all major browsers(chrome, Firefox, Safari, Edge maybe even old IE)
+
+### Test the website on actual mobile devices, not just DevTools
+### Optimize all images, in terms of dimentions and file size
+### Fix simple accessibility problems( eg color contrast issues)
+### Run the Lighthouse performance test in chrome DevTools and try to fix reported issues.
+### Think about Search Engine Optimization (SEO) 
+
+
+BROWSER SUPPORT, How different web browsers supports different CSS properties 
+
+How to see how different browsers supports different CSS properties 
+use (### caniuse.com) some old browsers will not see CSS grid edge, Firefox, chrome Safari (IOS)
+
+Backdrop filter blurs content behind, which does not work in safari unless use webkit, firefox does not work at all.
+
+safari does not support gap property in flex box until 2021, old iphones wont work
+
+
+
+### Testing Performance with LIGHTHOUSE TOOL (DEVELOPED BY GOOGLE)
+
+
+An automated tool used in improving the quality of our pages. check lighthouse from devTool
+
+IMAGE OPTIMIZATION
+
+MAKE YOUR IMAGE DOUBLE REAL IMAGE 
+-Rendered image = 550  round it to 600
+-double  600 * 2 = 1200 width 
+use an app to resize the images
+use Squoosh.app to compress images..
+always use image.webpe ===> but check how this format is supported by  browsers
+
+
+use Netlify to host projects
+use hover.com to host your sites
+
+
