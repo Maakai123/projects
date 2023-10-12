@@ -74,6 +74,76 @@ btnScrollTo.addEventListener('click', function(e){
 section1.scrollIntoView({behavior:  'smooth'})
 })
 
+
+
+//Build Tabbed component 
+
+
+//Note when using clicked = e.target to fine the individual clicked buttons
+//Note that if you click on the span it will also work which is bad
+//Then if you add parent e.target.parentElement span=> button but click on button
+// => the parent element which is bad, use closest which fine the closest parent of the button
+ //Guard clause is an if statement that returns early if some condition is met.
+ 
+
+ //class on all the button
+ const tabs = document.querySelectorAll('.operations__tab')
+ const tabsContainer = document.querySelector('.operations__tab-container')
+console.log(tabsContainer)
+
+ //for the content text space 
+ const tabsContent = document.querySelectorAll('.operations__content')
+ console.log(tabsContent)
+
+ //parent 
+ tabsContainer.addEventListener('click', function (e) {
+  //prevent it from returning null when click in open space between the each btns
+  const clicked = e.target.closest('.operations__tab') //each btn
+  console.log(clicked)
+
+  //Ignore any clicks where there is Null. (click in between the btns)
+
+  //Guard 
+  //if there is no click, return it immediately, since null is falsey it will return true
+  //if there is click the return wont work
+
+    /*
+  if(clicked){
+    clicked.classList.add('operations__tab--active')
+  }
+  */
+  if(!clicked) return 
+
+  //remove class first from each btns
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'))
+
+  //remove active class from each contents 
+  tabsContent.forEach(con => con.classList.remove('operations__content--active'))
+
+  //Active Tab
+  clicked.classList.add('operations__tab--active')
+
+
+  //Activate content area
+  console.log(clicked.dataset.tab)
+  //Each dataSet 1 ,2 0r 3 are stored in clicked
+  //if i click 2 clicked = 2 automatically content of 2 will be displayed.
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`)
+  .classList.add('operations__content--active'); //add the content that is active 
+   
+
+ })
+
+ //Passing Arguments to Event Handlers 1:15:36pm
+
+ 
+
+
+
+
+
+
+
 /******************* *****************
 EVENT DELIGATION
 *************************************/
@@ -373,3 +443,35 @@ document.querySelector('.nav__links').addEventListener('click', function(e){
   */
 
 //Dom Traversing, 39: 28;
+const h1 = document.querySelector('h1')
+
+console.log(h1.querySelectorAll('.highlight'))
+//going downwards:child we use querySelector
+
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children)
+
+h1.firstElementChild.style.color = 'white'
+h1.lastElementChild.style.color = 'orangered'
+
+//Going upwards: parents 
+console.log(h1.parentNode);
+console.log(h1.parentElement)
+h1.closest('.header').style.background = 'var(--gradient-secondary)';
+//the whole header conatiner
+
+h1.closest('h1').style.background = 'var(--gradient-primary)'
+
+
+//going sideaways:siblings
+
+//there is no previous sibling, the first is always the child Element
+
+console.log(h1.previousElementSibling)
+console.log(h1.nextElementSibling)
+console.log(h1.previousSibling)
+console.log(h1.nextSibling)
+
+console.log(h1.parentElement.children)
+
