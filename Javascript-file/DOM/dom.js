@@ -134,20 +134,375 @@ console.log(tabsContainer)
 
  })
 
+
  //Passing Arguments to Event Handlers 1:15:36pm
-
- 
-
-
+  // Menu fade animation 
+  const nav = document.querySelector('.nav')
 
 
+ //refactor the code 
+const handleHover = function (e, /*opacity*/){
+  console.log(this) //0.5 0r 1
+  if(e.target.classList.contains('nav__link')) {
+    const link = e.target; //each links
+    const siblings = link.closest('.nav') //Parent then search for all children and siblings
+    .querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img')
+
+    //loop through siblings and add opacity
+    siblings.forEach(el => {
+      //this keyword will point towards bind(), it will be equal to any number passed into bind
+     
+      if(el !== link ) el.style.opacity = this;
+    });
+
+    logo.style.opacity = this;
+  }
+}
 
 
+
+//This wont work 
+
+//nav.addEventListener('mouseover', handleHover(e, opacity))This function needs a function
+
+/*This key word = curent target 
+nav.addEventListener('mouseover', function(e){
+  handleHover(e, 0.5)
+})
+
+//Fade out
+
+nav.addEventListener('mouseout', function(e){
+  handleHover(e, 1)
+})
+
+*/
+
+//this keyword will point towards bind(), it will be equal to any number passed into bind
+
+//Passing argument into handler, one aug can be passed into the function
+nav.addEventListener('mouseover',  handleHover.bind(0.5))
+  //bind returns a new function
+
+
+//Fade out
+
+nav.addEventListener('mouseout',  handleHover.bind(1))
+
+
+
+//Sticky Navigation
+//scroll is available in window and addEventListener
+
+//scroll fires all the time, it affect performance 
+//Method 1
+
+/*
+const initialCoords = section1.getBoundingClientRect();
+console.log(initialCoords)
+
+window.addEventListener('scroll', function() {
+  console.log(window.scrollY)
+  if(this.window.scrollY > initialCoords.top) {
+    nav.classList.add('sticky');
+    
+  } else nav.classList.remove('sticky')
+})
+
+*/
+
+//Method 2 better way using The Intersction Observer API
+//This API Helps our code to observe changes to the way a certain Target Element intersect another Element
+
+/*
+const obsCallback = function(entries, oberver) {
+ entries.forEach(entry => {
+   console.log(entry)
+ }) 
+  
+
+}
+
+
+
+const obsOptions = {
+  root: null,
+  threshold: [0, 0.2] // At zero, = each section or each out of view and it fires immediately, it fires again when = 20 of the page
+
+}
+
+
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+observer.observe(section1)
+
+*/
+
+//Navigatin sticky should happen, when ever we dont see the header again
+
+
+const headerInt  = document.querySelector('.header')
+const navHeight = nav.getBoundingClientRect().height;
+console.log(navHeight)
+
+const stickyNav = function(entries) {
+ /* entries.forEach(entry => {
+    console.log(entry)
+  })*/
+  const [entry] = entries;
+  console.log(entry);
+
+  if(!entry.isIntersecting) nav.classList.add('sticky'); //if entry is not intersecting 
+  else nav.classList.remove('sticky')
+}
+
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root:null,
+  threshold:0,
+  rootMargin: `-${navHeight}px`,  //This is a box of -90px that vwill added to our terget Element (HeaderInt) 
+  //the distance between the out going page and the one coming in.
+})
+
+headerObserver.observe(headerInt)
+
+
+//Reaveal sections 
+
+
+const alSections = document.querySelectorAll('.section')
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if(!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden')
+  //unobserve
+  observer.unobserve(entry.target)
+}
+
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root:null,
+  threshold: 0.15,
+});
+
+alSections.forEach(function(section){
+  sectionObserver.observe(section)
+ // section.classList.add('section--hidden'); //hide all sections
+})
+
+
+
+//Lazy Loading IMAGES
+
+const imgTargets = document.querySelectorAll('img[data-src]') //access only images with data src
+const loadImg = function(entries, observer){
+  const [entry] = entries;
+  if(!entry.isIntersecting) return;
+
+  //Replace src with data-src
+  entry.target.src = entry.target.dataset.src // main image
+  //the image will return a event load, which we can listen for
+//when ever the image loads remove lazy loading 
+
+  entry.target.addEventListener('load', function() {
+    entry.target.classList.remove('lazy-img')
+  })
+
+  observer.unobserve(entry.target)
+}
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold:0,
+  //load the image in the background without user noticing
+  rootMargin:'200px'
+})
+
+imgTargets.forEach(img => imgObserver.observe(img))
+
+
+//Building A slider Component
+//2:37:12
+
+//slider
+
+//get all the slides 
+const sliderFunc = function () {
+const slides = document.querySelectorAll('.slide')
+//const slider = document.querySelector('.slider')
+const btnLeft = document.querySelector('.slider__btn--left')
+const btnRight = document.querySelector('.slider__btn--right')
+const dotContainer = document.querySelector('.dots')
+
+let currentSlide = 0;
+const maxSlide = slides.length;
+
+//increase all slides
+
+//slider.style.transform = 'scale(0.3) translateX(-1200px)' //translateX will move pix to the left
+//visible
+//slider.style.overflow = 'visible';
+
+//Dots
+
+
+
+//functions 
+
+const createDots = function() {
+  slides.forEach(function(_,i){ //for slides but we dont need it rather only index 0-3
+    dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+  })
+}
+
+// => createDots()
+
+
+//Activate Dots
+const activeDot = function (slide) {
+  //remove all active classes
+  document.querySelectorAll('.dots__dot').forEach(dot => 
+    dot.classList.remove('dots__dot--active'));
+
+  //add the active class we want by using data attributes
+  document.querySelector(`.dots__dot[data-slide="${slide}"]`)
+  .classList.add('dots__dot--active')
+};
+
+//=> activeDot(0)
+
+
+
+//loop through each slides
+//slides.forEach((s,i) => s.style.transform = `translateX(${100 * i}%)`) //translateX   will start at 100%, the 2nd will start at the end of first image 200%
+// 0%,100%, 200%, 300%,  index = 0,  the first one 0 * 100 = 0, when i = 1 1*100 = 100%
+
+
+//Refactor code 
+//function left or right
+
+const goToSlide = function(slide) {
+  slides.forEach(
+    (s,i) => s.style.transform = `translateX(${100 * (i - slide)}%)`)
+}
+
+
+//slides.forEach((s,i) => s.style.transform = `translateX(${100 * i}%)`)
+//=> goToSlide(0) //this is the same as above
+//Next slide
+
+//Note, when you want to move to next,the first slide is at zero, move next you will increase it from zero
+
+const nextSlide = function() {
+//stop the slides when it gets to the last one
+  /*If curr slide = maxslide, has reached the last return curent to zero*/ 
+  if(currentSlide === maxSlide - 1){ //MaxSlide = 4 its not zero based, the slide will move one more time before returning to the begining,
+    //to make it zero base add -1
+
+    currentSlide  = 0;
+  } else {
+     
+    //move to the right, increase the current  slide to 1
+   currentSlide++;
+  }
+
+
+  goToSlide(currentSlide)
+  //slides.forEach((s,i) => s.style.transform = `translateX(${100 * (i - currentSlide)}%)`)
+
+
+  // curSlide = 1;  -100%  0%, 200%, 300%,   i = 0, 0-1 = 1, -1 * 100  = -100%, i=1 => 0%
+  activeDot(currentSlide)
+
+
+}
+
+
+const prevSlide = function(){
+  //Note they work same both forward or backward
+  if(currentSlide === 0) {
+    currentSlide = maxSlide - 1
+  } else {
+    currentSlide--;
+  }
+  
+  goToSlide(currentSlide)
+  activeDot(currentSlide)
+}
+
+
+
+//refactor the code with initilization functions 
+
+const init = function() {
+  goToSlide(0)
+  createDots()
+  activeDot(0)
+}
+
+init()
+
+//Events
+btnRight.addEventListener('click', nextSlide )
+btnLeft.addEventListener('click',prevSlide)
+
+//use keyboard to make it slide
+document.addEventListener('keydown', function(e){
+  console.log(e)
+  if(e.key === 'ArrowLeft') prevSlide();
+  //
+  e.key === 'ArrowRight' && nextSlide()
+})
+
+//Dots
+dotContainer.addEventListener('click', function(e){ //event deligation, 
+  //check for class, if its available with or match the element we are interested in
+  if(e.target.classList.contains('dots__dot')){
+    console.log("dot")
+   const slide = e.target.dataset.slide; //the Index is in the  "data-slide${i}"  
+    //use destructing since slide and slide are same
+    //const {slide} =  e.target.dataset
+    //go to slide we just targeted
+    goToSlide(slide)
+    activeDot(slide)
+  }
+})
+
+}
+sliderFunc()
+
+/******************* *****************
+//LIFE CYCLE DOM EVENT
+*************************************/
+
+//how fast the images loads, we wamt all our codes to be executed only when the dom is ready
+document.addEventListener('DOMContentLoaded', function(e) {
+  console.log('HTML parsed and Dom tree built', e)
+})
+
+
+//Load Event 
+
+window.addEventListener('load', function(e) {
+  console.log('page fully loaded', e)
+})
+
+
+//before unload
+
+//window.addEventListener('beforeunload', function(e) {
+  
+ // e.preventDefault()
+  //console.log(e)
+ // e.returnValue = '';
+//})
 
 /******************* *****************
 EVENT DELIGATION
 *************************************/
 // Page Navigations 
+
 
 
 
@@ -458,7 +813,7 @@ h1.lastElementChild.style.color = 'orangered'
 //Going upwards: parents 
 console.log(h1.parentNode);
 console.log(h1.parentElement)
-h1.closest('.header').style.background = 'var(--gradient-secondary)';
+//h1.closest('.header').style.background = 'var(--gradient-secondary)';
 //the whole header conatiner
 
 h1.closest('h1').style.background = 'var(--gradient-primary)'
